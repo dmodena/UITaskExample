@@ -27,8 +27,16 @@ namespace UITaskExample
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            lblResult.Content = "Calculando...";
             long noOfValues = long.Parse(txtInput.Text);
-            lblResult.Content = computAverages(noOfValues);
+            Task.Run(() =>
+            {
+                double result = computAverages(noOfValues);
+
+                Dispatcher.Invoke(() => { lblResult.Content = result.ToString(); });
+            });
+            
+            
         }
 
         private double computAverages(long noOfValues)
