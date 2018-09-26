@@ -25,18 +25,14 @@ namespace UITaskExample
             InitializeComponent();
         }
 
-        private void btnStart_Click(object sender, RoutedEventArgs e)
+        private async void btnStart_Click(object sender, RoutedEventArgs e)
         {
             lblResult.Content = "Calculando...";
             long noOfValues = long.Parse(txtInput.Text);
-            Task.Run(() =>
-            {
-                double result = computAverages(noOfValues);
 
-                Dispatcher.Invoke(() => { lblResult.Content = result.ToString(); });
-            });
-            
-            
+            double result = await (asyncComputeAverages(noOfValues));
+
+            lblResult.Content = result.ToString();
         }
 
         private double computAverages(long noOfValues)
@@ -50,6 +46,13 @@ namespace UITaskExample
             }
 
             return total / noOfValues;
+        }
+
+        private Task<double> asyncComputeAverages(long noOfValues)
+        {
+            return Task<double>.Run(() => {
+                return computAverages(noOfValues);
+            });
         }
     }
 }
