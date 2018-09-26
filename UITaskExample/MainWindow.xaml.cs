@@ -24,5 +24,24 @@ namespace UITaskExample
         {
             InitializeComponent();
         }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            long noOfValues = long.Parse(txtInput.Text);
+            lblResult.Content = computAverages(noOfValues);
+        }
+
+        private double computAverages(long noOfValues)
+        {
+            double total = 0;
+            Random rand = new Random();
+
+            for (long values = 0; values < noOfValues; values++)
+            {
+                total = total + rand.NextDouble();
+            }
+
+            return total / noOfValues;
+        }
     }
 }
