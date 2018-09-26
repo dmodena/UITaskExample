@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Random Averages" HorizontalAlignment="Left" Margin="202,23,0,0" VerticalAlignment="Top" FontSize="48"/>
+        <Label Content="Number of Values:" HorizontalAlignment="Left" Margin="202,102,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Height="23" Margin="359,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" FontSize="16"/>
+        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="359,146,0,0" VerticalAlignment="Top" Width="100" FontSize="24"/>
+        <Label Content="Result:" HorizontalAlignment="Left" Margin="202,210,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lblResult" Content="Label" HorizontalAlignment="Left" Margin="285,210,0,0" VerticalAlignment="Top" FontSize="20"/>
+
     </Grid>
 </Window>
